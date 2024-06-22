@@ -3,17 +3,6 @@
         zmk,kscan = &kscan0;
     };
 
-    leds {
-		compatible = "gpio-leds";
-        status = "okay";
-
-        ledint: led_0 {
-            gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
-            label = "INTERNAL LED";
-        };
-        
-    };
-
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
         diode-direction = "col2row";

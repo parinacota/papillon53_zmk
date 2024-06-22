@@ -1,7 +1,7 @@
 if SHIELD_PAPILLON53
 
 config ZMK_KEYBOARD_NAME
-    default "Papillon"
+    default "papillon53"
 
 config ZMK_BLE
 	default y
