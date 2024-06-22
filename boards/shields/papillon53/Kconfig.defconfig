@@ -1,0 +1,12 @@
+if SHIELD_PAPILLON53
+
+config ZMK_KEYBOARD_NAME
+    default "Papillon"
+
+config ZMK_BLE
+	default y
+
+config ZMK_USB
+	default y
+
+endif

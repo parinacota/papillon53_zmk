@@ -1,0 +1,50 @@
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+
+#include <behaviors.dtsi>
+
+#include "keymap_french.h"
+
+/ { 
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+
+            bindings = <
+// +-----------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+// |  TAB      |    b      |    é      |    p      |    o      |    è      |    |    ^      |    v      |    d      |    l      |    j      |    z      |
+    &kp TAB     &kp FR_B    &kp FR_EACU &kp FR_P    &kp FR_O    &kp FR_EGRV      &kp FR_CIRC &kp FR_V    &kp FR_D    &kp FR_L    &kp FR_J    &kp FR_Z
+// +-----------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+// |    w      |    a      |    u      |    i      |    e      |    ,      |    |    c      |    t      |    s      |    r      |    n      |    m      |    
+    &kp FR_W    &kp FR_A    &kp FR_U    &kp FR_I    &kp E       &kp FR_COMM      &kp FR_C    &kp FR_R    &kp FR_S    &kp FR_T    &kp FR_N    &kp FR_M
+// +-----------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+// |    ê      |    à      |    y      |    x      |    .      |    k      |    |    '      |    q      |    g      |    h      |    f      |    ç      |
+    &kp FR_CIRC &kp FR_AGRV &kp FR_Y    &kp FR_X    &kp FR_DOT  &kp FR_K         &kp FR_QUOT &kp FR_Q    &kp FR_G    &kp FR_H    &kp FR_F    &kp FR_CCED
+// +-----------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+//                                     |  ALTGT    |  SHIFT    |  CODE     |    |  ENTER    |   SPACE   |  BACKSP   |
+                                        &kp RALT    &kp LSHIFT  &none            &kp ENTER   &kp SPACE   &kp BACKSPACE
+//                                     +-----------+-----------+-----------+    +-----------+-----------+-----------+
+//
+//                                                             +-----------+    +-----------+
+//                                                             |   ESC     |    | PRINTSCR  |
+                                                                &kp ESC          &kp PRINTSCREEN
+//                                                             +-----------+    +-----------+
+//                                                                     +-----------+
+//                                                                     |   LOCK    |
+                                                                        &out OUT_TOG
+//                                                                +----+------+----+------+                 +-----------+
+//                                                                |  HOME     |   END     |                 |  BLUETH   |
+                                                                   &kp HOME    &kp END                       &bt BT_CLR
+//                                                          +-----+-----+-----------+-----+-----+           +-----------+
+//                                                          |  PGUP     |   UP      |  PGDWN    |         
+                                                             &kp PG_UP   &kp UP      &kp PG_DN
+//                                                          +-----------+-----------+-----------+
+//                                                          |  LEFT     |  DOWN     |  ROGHT    |                                                                
+                                                             &kp LEFT    &kp DOWN    &kp RIGHT            
+//                                                          +-----------+-----------+-----------+
+            >;
+        };
+    };
+};
