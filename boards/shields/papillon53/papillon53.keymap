@@ -55,8 +55,9 @@
         UnS: UnS {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&macro_release &kp LSHFT>
-                ,<&macro_param_1to1>,
+            bindings = 
+                <&macro_release &kp LSHFT>
+                ,<&macro_param_1to1>
                 ,<&macro_tap &kp MACRO_PLACEHOLDER>
                 ,<&macro_press &kp LSHFT>
                 ;
@@ -65,7 +66,10 @@
         osx_cir: osx_cir {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
-            bindings = <&macro_param_1to1>,<&macro_tap &kp FR_CIRC &kp MACRO_PLACEHOLDER>;
+            bindings = 
+                <&macro_param_1to1>
+                ,<&macro_tap &kp FR_CIRC &kp MACRO_PLACEHOLDER>
+                ;
         };
     };
 
