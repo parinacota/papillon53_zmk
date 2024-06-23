@@ -105,7 +105,7 @@
     &kp LALT        &trans      &trans      &kp FR_QUES &trans      &kp FR_B         &kp FR_COLN &trans      &trans      &kp FR_SCLN &trans      &kp LA(FR_SLSH)
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 //                             |  COMMD    |  SHIFT             |  CODE        |    |  DEL      |   SPACE   |   ENTER   |
-                                &trans      &trans               &mo OSX_CODE         &kp DEL   <&osx_insec> &trans 
+                                &trans      &trans               &mo OSX_CODE         &kp DEL    &osx_insec  &trans 
 //                             +-----------+--------------------+--------------+    +-----------+-----------+-----------+
 //
 //                                                                 +-----------+    +-----------+
