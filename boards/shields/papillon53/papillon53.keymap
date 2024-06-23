@@ -139,7 +139,7 @@
             bindings = <
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |  •            |    Q      |    C      |    O      |    P      |    W      |    |    J      |    M      |    D      |   !       |    Y      |    $      |
-    &kp LA(NUBS)    &osx_cir Q  &FR_CCED    &kp LA(O)   &osx_cir O  &kp FR_DEG       &none       &none       &none       &none       &none       &none
+    &kp LA(NUBS)    &osx_cir Q  &kp FR_CCED &kp LA(O)   &osx_cir O  &kp FR_DEG       &none       &none       &none       &none       &none       &none
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |               |    A      |    S      |    E      |    N      |    F      |    |    L      |    R      |    T      |    I      |    U      |           |    
     &none           &none       &none       &none       &none       &none            &none       &none       &none       &none       &none       &none
