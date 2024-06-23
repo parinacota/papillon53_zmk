@@ -20,6 +20,9 @@
 #define ALL_NAV  11
 
 / { 
+    &sl {
+        release-after-ms = <5000>;
+    };
 
     macros {
         lm: lm {
