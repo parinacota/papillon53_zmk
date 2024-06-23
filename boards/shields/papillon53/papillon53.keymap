@@ -45,13 +45,25 @@
             #binding-cells = <0>;
             bindings
                 = <&macro_release &kp LSHFT>
+                , <&macro_press &kp LALT>
                 , <&macro_tap &kp SPACE>
+                , <&macro_release &kp LALT>
                 , <&macro_press &kp LSHFT>
                 ;
         };
 
+        UnS: UnS {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_release &kp LSHFT>
+                ,<&macro_param_1to1>,
+                ,<&macro_tap &kp MACRO_PLACEHOLDER>
+                ,<&macro_press &kp LSHFT>
+                ;
+        };
+
         osx_cir: osx_cir {
-            compatible = "zmk,behavior-macro";
+            compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
             bindings = <&macro_param_1to1>,<&macro_tap &kp FR_CIRC &kp MACRO_PLACEHOLDER>;
         };
@@ -102,16 +114,16 @@
             bindings = <
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |  TAB          |    Q      |    C      |    O      |    P      |    W      |    |    J      |    M      |    D      |   !       |    Y      |    $      |
-    &trans          &trans      &trans      &kp FR_O    &trans      &trans           &trans      &trans      &trans      &kp FR_EXLM &trans      &kp FR_DLR
+    &trans          &trans      &trans      &kp FR_O    &trans      &trans           &trans      &trans      &trans     &UnS FR_EXLM  &trans     &UnS FR_DLR
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |               |    A      |    S      |    E      |    N      |    F      |    |    L      |    R      |    T      |    I      |    U      |           |    
     &none           &trans      &trans      &trans      &trans      &trans           &trans      &trans      &trans      &trans      &trans      &none
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |               |    Z      |    X      |    ?      |    V      |    B      |    |    :      |    H      |    G      |    ;      |    K      |    /      |
-    &kp LALT        &trans      &trans      &kp FR_QUES &trans      &kp FR_B         &kp FR_COLN &trans      &trans      &kp FR_SCLN &trans      &kp LA(FR_SLSH)
+    &kp LALT        &trans      &trans     &UnS FR_QUES &trans      &kp FR_B        &UnS FR_COLN &trans      &trans     &UnS FR_SCLN &trans     &UnS LA(FR_SLSH)
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 //                             |  COMMD    |  SHIFT             |  CODE        |    |  DEL      |   SPACE   |   ENTER   |
-                                &trans      &trans               &mo OSX_CODE         &kp DEL    &osx_insec  &trans 
+                                &trans      &trans               &mo OSX_CODE        &UnS DEL    &osx_insec  &trans 
 //                             +-----------+--------------------+--------------+    +-----------+-----------+-----------+
 //
 //                                                                 +-----------+    +-----------+
@@ -138,7 +150,7 @@
 
             bindings = <
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
-// |  •            |    Q      |    C      |    O      |    P      |    W      |    |    J      |    M      |    D      |   !       |    Y      |    $      |
+// |  •            |    â      |    ç      |    oe     |    ô      |    °      |    |    J      |    M      |    D      |   !       |    Y      |    $      |
     &kp LA(NUBS)    &osx_cir Q  &kp FR_CCED &kp LA(O)   &osx_cir O  &kp FR_DEG       &none       &none       &none       &none       &none       &none
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |               |    A      |    S      |    E      |    N      |    F      |    |    L      |    R      |    T      |    I      |    U      |           |    
