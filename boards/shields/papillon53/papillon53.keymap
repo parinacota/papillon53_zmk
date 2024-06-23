@@ -38,10 +38,22 @@
             ;
     };
 
+    macros {
+        osx_insec: osx_insec {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_release &kp LSHFT>
+                , <&macro_tap &kp Z &kp M &kp K>
+                , <&macro_release &kp LSHFT>
+                ;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        osx_default_layer { // OSX_DFLT 0
 
             bindings = <
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
@@ -49,13 +61,13 @@
     &kp TAB         &kp FR_Q    &kp FR_C &lt ALL_NAV FR_O &kp FR_P  &kp FR_W         &kp FR_J    &kp FR_V    &kp FR_D    &sl OSX_1DK &kp FR_Y    &kp LA(FR_DLR)
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 // |    "          |    a      |    s      |    e      |    n      |    f      |    |    l      |    r      |    t      |    i      |    u      |    @      |    
-&ht_bl LCTL FR_DQUO &kp FR_A    &kp FR_S    &kp FR_E    &kp N       &kp FR_F         &kp FR_L    &kp FR_R    &kp FR_T    &kp FR_I    &kp FR_U    &kp NUBS
+    &mt LCTL FR_DQUO &kp FR_A   &kp FR_S    &kp FR_E    &kp N       &kp FR_F         &kp FR_L    &kp FR_R    &kp FR_T    &kp FR_I    &kp FR_U    &kp NUBS
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
-// |    '          |    z      |    y      |    -      |    v      |    b      |    |    .      |    h      |    g      |    ,      |    k      |    /      |
-&ht_bl LALT FR_QUOT &kp FR_Z &kp FR_Y    &kp FR_EQL  &kp FR_V  &lt ALL_FUNC FR_B  &kp FR_DOT  &kp FR_H    &kp FR_G    &kp FR_COMM &kp FR_K    &kp FR_SLSH
+// |    '          |    z      |    x      |    -      |    v      |    b      |    |    .      |    h      |    g      |    ,      |    k      |    /      |
+    &mt LALT FR_QUOT &kp FR_Z   &kp FR_X    &kp FR_EQL  &kp FR_V  &lt ALL_FUNC FR_B  &kp FR_DOT  &kp FR_H    &kp FR_G    &kp FR_COMM &kp FR_K    &kp FR_SLSH
 // +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
 //                             |  COMMD    |  SHIFT             |  CODE        |    |  BACKSP   |   SPACE   |   ENTER   |
-                                &kp LGUI    &lm OSX_SHFT LSHIFT  &mo OSX_CODE         &kp BSPC    &kp SPACE   &kp ENTER 
+                                &kp LGUI    &lm OSX_SHFT LSHIFT  &mo OSX_CODE         &kp DEL    &kp SPACE   &kp ENTER 
 //                             +-----------+--------------------+--------------+    +-----------+-----------+-----------+
 //
 //                                                                 +-----------+    +-----------+
@@ -74,6 +86,43 @@
 //                                                               +-----------+-----------+-----------+
 //                                                               |  LEFT     |  DOWN     |  ROGHT    |                                                                
                                                                 &kp LEFT    &kp DOWN    &kp RIGHT            
+//                                                               +-----------+-----------+-----------+
+            >;
+        }; 
+
+        osx_shift_layer {
+
+            bindings = <
+// +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+// |  TAB          |    Q      |    C      |    O      |    P      |    W      |    |    J      |    M      |    D      |   !       |    Y      |    $      |
+    &trans          &trans      &trans      &kp FR_O    &trans      &trans           &trans      &trans      &trans      &kp FR_EXLM &trans      &kp FR_DLR
+// +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+// |               |    A      |    S      |    E      |    N      |    F      |    |    L      |    R      |    T      |    I      |    U      |           |    
+    &none           &trans      &trans      &trans      &trans      &trans           &trans      &trans      &trans      &trans      &trans      &none
+// +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+// |               |    Z      |    X      |    ?      |    V      |    B      |    |    :      |    H      |    G      |    ;      |    K      |    /      |
+    &kp LALT        &trans      &trans      &kp FR_QUES &trans      &kp FR_B         &kp FR_COLN &trans      &trans      &kp FR_SCLN &trans      &kp LA(FR_SLSH)
+// +---------------+-----------+-----------+-----------+-----------+-----------+    +-----------+-----------+-----------+-----------+-----------+-----------+
+//                             |  COMMD    |  SHIFT             |  CODE        |    |  BACKSP   |   SPACE   |   ENTER   |
+                                &trans      &trans               &mo OSX_CODE         &kp BSPC   <&osx_insec> &trans 
+//                             +-----------+--------------------+--------------+    +-----------+-----------+-----------+
+//
+//                                                                 +-----------+    +-----------+
+//                                                                 |   ESC     |    | PRINTSCR  |
+                                                                    &trans           &trans
+//                                                                 +-----------+    +-----------+
+//                                                                          +-----------+
+//                                                                          |   LOCK    |
+                                                                            &out OUT_TOG
+//                                                                     +----+------+----+------+                 +-----------+
+//                                                                     |  HOME     |   END     |                 |  BLUETH   |
+                                                                        &trans      &trans                        &trans
+//                                                               +-----+-----+-----------+-----+-----+           +-----------+
+//                                                               |  PGUP     |   UP      |  PGDWN    |         
+                                                                &trans        &trans      &trans
+//                                                               +-----------+-----------+-----------+
+//                                                               |  LEFT     |  DOWN     |  ROGHT    |                                                                
+                                                                &trans        &trans      &trans            
 //                                                               +-----------+-----------+-----------+
             >;
         };
