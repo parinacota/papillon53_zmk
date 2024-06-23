@@ -71,9 +71,12 @@
         osx_cir: osx_cir {
             compatible = "zmk,behavior-macro-one-param";
             #binding-cells = <1>;
+            wait-ms = <20>;
+            tap-ms = <20>;
             bindings = 
-                <&macro_param_1to1>
-                ,<&macro_tap &kp FR_CIRC &kp MACRO_PLACEHOLDER>
+                <&macro_tap &kp FR_CIRC>
+                ,<&macro_param_1to1>
+                ,<&macro_tap &kp MACRO_PLACEHOLDER>
                 ;
         };
     };
